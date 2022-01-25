@@ -2,9 +2,11 @@
     <h1>
         My cart
     </h1>
+    <h2 *ngIf="cartMap.size < 1">No staff in cart!</h2>
     <ul>
         <li *ngFor="let item of cartMap | keyvalue">
             {{item.key}}, quantity: {{item.value}}
+            <button (click)="clearItem(item.key)">Remove</button>
         </li>
     </ul>
 </div>
