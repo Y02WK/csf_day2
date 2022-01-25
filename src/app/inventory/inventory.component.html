@@ -1,0 +1,9 @@
+<div>
+    <h1>Please select</h1>
+    <ul>
+        <li *ngFor="let item of itemList">
+            {{item}}
+            <button (click)="addItem(item)">Add</button>
+        </li>
+    </ul>
+</div>

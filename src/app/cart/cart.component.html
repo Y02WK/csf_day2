@@ -1,0 +1,10 @@
+<div>
+    <h1>
+        My cart
+    </h1>
+    <ul>
+        <li *ngFor="let item of cartMap | keyvalue">
+            {{item.key}}, quantity: {{item.value}}
+        </li>
+    </ul>
+</div>
