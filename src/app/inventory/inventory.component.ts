@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Staff } from '../staff';
+import { STAFF_LIST } from '../staff-list';
 
 @Component({
   selector: 'app-inventory',
@@ -6,11 +8,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./inventory.component.css'],
 })
 export class InventoryComponent implements OnInit {
-  itemList: string[] = ['chuk', 'kenneth', 'fuchun', 'dionne'];
+  itemList = STAFF_LIST;
   @Output() sendName = new EventEmitter<string>();
 
-  addItem(item: string) {
-    this.sendName.emit(item);
+  addItem(item: Staff) {
+    this.sendName.emit(item.name);
   }
 
   constructor() {}

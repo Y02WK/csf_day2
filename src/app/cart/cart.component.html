@@ -6,7 +6,9 @@
     <ul>
         <li *ngFor="let item of cartMap | keyvalue">
             {{item.key}}, quantity: {{item.value}}
-            <button (click)="clearItem(item.key)">Remove</button>
+            <button mat-fab (click)="clearItem(item.key)">
+                <mat-icon>remove_shopping_cart</mat-icon>
+            </button>
         </li>
     </ul>
 </div>
