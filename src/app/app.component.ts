@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'day2_workshop';
   @ViewChild(CartComponent) cart?: CartComponent;
   addItem(item: string) {
-    console.log(item);
     this.cart?.addtoCart(item);
   }
 

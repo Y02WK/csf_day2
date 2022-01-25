@@ -3,12 +3,13 @@
         My cart
     </h1>
     <h2 *ngIf="cartMap.size < 1">No staff in cart!</h2>
-    <ul>
-        <li *ngFor="let item of cartMap | keyvalue">
-            {{item.key}}, quantity: {{item.value}}
+    <mat-list>
+        <mat-list-item *ngFor="let item of cartMap | keyvalue: asIsOrder">
+            <img matListAvatar src="{{item.value[0].image}}">
+            {{item.value[0].name}}, quantity: {{item.value[1]}}
             <button mat-fab (click)="clearItem(item.key)">
                 <mat-icon>remove_shopping_cart</mat-icon>
             </button>
-        </li>
-    </ul>
+        </mat-list-item>
+    </mat-list>
 </div>

@@ -11,8 +11,8 @@ export class InventoryComponent implements OnInit {
   itemList = STAFF_LIST;
   @Output() sendName = new EventEmitter<string>();
 
-  addItem(item: Staff) {
-    this.sendName.emit(item.name);
+  addItem(itemID: string) {
+    this.sendName.emit(itemID);
   }
 
   constructor() {}

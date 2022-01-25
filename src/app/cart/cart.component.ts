@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Staff } from '../staff';
+import { STAFF_LIST } from '../staff-list';
 
 @Component({
   selector: 'app-cart',
@@ -6,16 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  cartMap = new Map<string, number>();
+  STAFF_LIST = STAFF_LIST;
+  cartMap = new Map<string, any>();
+
+  asIsOrder(a: any, b: any) {
+    return 1;
+  }
 
   addtoCart(item: string) {
-    console.log(`cart item == ${item}`);
     if (this.cartMap.has(item)) {
-      this.cartMap.set(item, (this.cartMap.get(item) ?? 0) + 1);
+      this.cartMap.set(item, [
+        STAFF_LIST[parseInt(item)],
+        (this.cartMap.get(item)[1] ?? 0) + 1,
+      ]);
     } else {
-      this.cartMap.set(item, 1);
+      this.cartMap.set(item, [STAFF_LIST[parseInt(item)], 1]);
     }
-    console.log(this.cartMap.get(item));
   }
 
   clearItem(item: string) {
